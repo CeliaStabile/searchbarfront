@@ -8,9 +8,7 @@ function Home() {
   return (
     <div>
       <main className={styles.main}>
-        <div className={styles.headerContainer}>
-       <Searchbar></Searchbar>
-       </div>
+       <Searchbar></Searchbar>  
       </main>
     </div>
   );

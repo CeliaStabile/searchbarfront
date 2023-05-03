@@ -1,7 +1,9 @@
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Searchbar.module.css';
 import  { useState, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-function Searchbar(props) {
+function Searchbar() {
   const [autoComplete, setAutoComplete] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [input, setInput] = useState("");
@@ -121,8 +123,8 @@ async function handleDestinationClick (destination) {
      , [formatDest])
 
   return (
-    <div className="search-container" ref={wrapperRef}>
-      <div className="searchbar">
+    <div className={styles.searchContainer} ref={wrapperRef}>
+      <div className={styles.searchbar}>
         <input className={styles.input}
           type="text"
           placeholder="Une destination, demande..."
@@ -130,15 +132,18 @@ async function handleDestinationClick (destination) {
           onChange={handleChange}
           value={input}
         />
-      </div>
-      <div className="results">
+  <div className={styles.searchIconContainer}>
+<FontAwesomeIcon  className={styles.searchIcon} icon={faMagnifyingGlass}/>  
+</div>
+ </div>
+      <div className={styles.results}>
         {popularDestination.length > 0 && input === "" && isClicked &&
-          <>
-            <p>Destinations populaires</p>
+          <div className={styles.city}>
+            <p className={styles.titles}>Destinations populaires</p>
             {popularDestination.map((value, index) => {
-              return <div key={index} onClick={ () => {handleDestinationClick(value.local_name)}}> {value.local_name}</div>
+              return <div style={styles.textCity} key={index} onClick={ () => {handleDestinationClick(value.local_name)}}> {value.local_name}</div>
             })}
-          </>
+          </div>
         }
         {input !== "" && autoComplete.length > 0 &&
           <>
@@ -150,7 +155,7 @@ async function handleDestinationClick (destination) {
          {input !== "" && popularFrom.length > 0 &&
         //  autoComplete.length < 0 || popularDestination.length < 0 &&
              <>
-             <p>Destinations populaires depuis {chosenDestination}</p>
+             <p className={styles.titles}>Destinations populaires depuis {chosenDestination}</p>
                {popularFrom.map((suggestion, index) => (
                  <div key={index}> {suggestion.local_name}</div>
                ))}
