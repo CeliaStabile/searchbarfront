@@ -5,6 +5,7 @@
   align-items: center;
   min-height: 100vh;
   padding: 4rem 0;
+ 
 }
 
 .title {
@@ -20,3 +21,22 @@
 .title a:hover, .title a:focus, .title a:active {
   text-decoration: underline;
 }
+/* 
+.input{
+  pointer-events: auto;
+  z-index: 1;
+  width: 100%;
+  padding: 0 1.5rem;
+  border: 0 none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  color: #0c131f;
+  min-height: 3.5rem;
+  width: 50% ;
+  }
+/*  */
+  /* .headerContainer {
+    background-color: #0c131f;
+    margin-bottom: 3rem;
+    width: 50vw;
+  } */ 

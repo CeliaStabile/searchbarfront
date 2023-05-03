@@ -1,0 +1,11 @@
+.input{
+pointer-events: auto;
+z-index: 1;
+width: 100%;
+padding: 0 1.5rem;
+border: 0 none;
+border-radius: 2rem;
+font-size: 1rem;
+color: #0c131f;
+min-height: 3.5rem;
+}
