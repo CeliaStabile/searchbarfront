@@ -8,13 +8,13 @@
 .input{
     pointer-events: auto;
     z-index: 1;
-    width: 80vw;
+    width: 85vw;
     padding: 0 1.5rem;
     border: 0 none;
     border-radius: 2rem;
     font-size: 1rem;
     color: #0c131f;
-    min-height: 3.5rem;
+    min-height: 4.2rem;
     display: block;
     }
 
@@ -23,8 +23,8 @@
     z-index: 1;
     top: 0;
     right: 0;
-    height: 3.5rem;
-    border-radius: 2rem;
+    height: 4.2rem;
+    border-radius: 50%;
     background-color: #8de8fe;
     line-height: 1px;
     position: absolute;
@@ -39,15 +39,29 @@
     height: 1.5em;
 }
 
-.results{
+.autosuggestContainer{
     background-color: white;
     border-radius: 1rem;
     margin-top: 1px;
     padding: 0 2rem;
 }
 
+.result{
+    display: flex;
+    padding: 1rem;
+}
+
+.houseIcon{
+    padding: 2px;
+}
+
+
 .titles{
     padding-top: 1rem;
     font-family: 'Montserrat', sans-serif;
 }
 
+.resultContainer{
+    display: flex;
+    flex-direction: column;
+}
