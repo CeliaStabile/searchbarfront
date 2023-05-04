@@ -23,7 +23,7 @@
     z-index: 1;
     top: 0;
     right: 0;
-    height: 4.2rem;
+    min-height: 4.2rem;
     border-radius: 50%;
     background-color: #8de8fe;
     line-height: 1px;
@@ -43,25 +43,66 @@
     background-color: white;
     border-radius: 1rem;
     margin-top: 1px;
-    padding: 0 2rem;
+    overflow-y: scroll;
+    max-height: 500px;
+    margin: 10px;
 }
 
-.result{
-    display: flex;
-    padding: 1rem;
-}
 
 .houseIcon{
-    padding: 2px;
+    margin-right: 14px;
 }
 
 
 .titles{
-    padding-top: 1rem;
     font-family: 'Montserrat', sans-serif;
+    color: gray;
+    font-size: 15px;
+    padding-left: 12px;
 }
 
 .resultContainer{
     display: flex;
     flex-direction: column;
+    margin: 10px 0;
+}
+
+.city{
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+}
+
+.city:hover{
+    background-color: #F2F1F1;
+    cursor: pointer;
+}
+
+.resultText{
+    font-size: small;
+}
+
+.p{
+margin :1px;
+color: gray;
+}
+
+
+.cityName{
+    font-weight: bold;
+    margin:0;
+}
+
+.regionName{
+    margin: 6px;
+    font-weight: lighter;
+    color: gray;
+}
+
+.finalCity{
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
 }
