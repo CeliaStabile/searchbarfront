@@ -2,8 +2,7 @@ import styles from "../styles/Searchbar.module.css";
 import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faHouse } from "@fortawesome/free-solid-svg-icons";
-import debounce from 'lodash/debounce';
-
+import debounce from "lodash/debounce";
 
 function Searchbar() {
   const [autoComplete, setAutoComplete] = useState([]);
@@ -13,9 +12,6 @@ function Searchbar() {
   const [formatDest, setFormatDest] = useState("");
   const [chosenDestination, setChosenDestination] = useState("");
   const [popularFrom, setPopularFrom] = useState([]);
-
- 
-
 
   //1- au clic sur input, PopularDestination chargé OK
   function handleClickInput() {
@@ -138,29 +134,35 @@ function Searchbar() {
       <div className={styles.autosuggestContainer}>
         {popularDestination.length > 0 && input === "" && isClicked && (
           <div className={styles.resultContainer}>
-            
-              <p className={styles.titles}>Destinations populaires</p>
+            <p className={styles.titles}>Destinations populaires</p>
 
-              {popularDestination.map((value, index) => {
-                return (
-                  <div className={styles.city}>
+            {popularDestination.map((value, index) => {
+              return (
+                <div className={styles.city}>
                   <FontAwesomeIcon
-                      className={styles.houseIcon}
-                      icon={faHouse}
-                    />
+                    className={styles.houseIcon}
+                    icon={faHouse}
+                  />
                   <div
                     className={styles.resultText}
                     key={index}
                     onClick={() => handleDestinationClick(value.local_name)}
                   >
-                        <p className={styles.p}>Ville</p>
-                    <p className={styles.cityName}>{value.local_name.slice(0, value.local_name.indexOf(","))} 
-                    <span className={styles.regionName}>({value.local_name.substring(value.local_name.indexOf(",") + 2)})</span></p>
+                    <p className={styles.p}>Ville</p>
+                    <p className={styles.cityName}>
+                      {value.local_name.slice(0, value.local_name.indexOf(","))}
+                      <span className={styles.regionName}>
+                        (
+                        {value.local_name.substring(
+                          value.local_name.indexOf(",") + 2
+                        )}
+                        )
+                      </span>
+                    </p>
                   </div>
-                  </div>
-                  );
-              })}
-           
+                </div>
+              );
+            })}
           </div>
         )}
 
@@ -170,17 +172,27 @@ function Searchbar() {
               <div className={styles.city}>
                 <FontAwesomeIcon className={styles.houseIcon} icon={faHouse} />
                 <div className={styles.resultText}>
-                <div
-                  key={index}
-                  onClick={() => {
-                    handleDestinationClick(suggestion.local_name);
-                  }}
-                >
-                  <p className={styles.p}>Ville</p>
-                  <p className={styles.cityName}>{suggestion.local_name.slice(0, suggestion.local_name.indexOf(","))} 
-                    <span className={styles.regionName}>({suggestion.local_name.substring(suggestion.local_name.indexOf(",") + 2)})</span></p>
-             
-                </div>
+                  <div
+                    key={index}
+                    onClick={() => {
+                      handleDestinationClick(suggestion.local_name);
+                    }}
+                  >
+                    <p className={styles.p}>Ville</p>
+                    <p className={styles.cityName}>
+                      {suggestion.local_name.slice(
+                        0,
+                        suggestion.local_name.indexOf(",")
+                      )}
+                      <span className={styles.regionName}>
+                        (
+                        {suggestion.local_name.substring(
+                          suggestion.local_name.indexOf(",") + 2
+                        )}
+                        )
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -196,10 +208,20 @@ function Searchbar() {
               <div className={styles.finalCity}>
                 <FontAwesomeIcon className={styles.houseIcon} icon={faHouse} />
                 <div className={styles.resultText}>
-                <p className={styles.p}>Ville</p>
-                <p className={styles.cityName}>{suggestion.local_name.slice(0, suggestion.local_name.indexOf(","))} 
-                    <span className={styles.regionName}>({suggestion.local_name.substring(suggestion.local_name.indexOf(",") + 2)})</span></p>
-      
+                  <p className={styles.p}>Ville</p>
+                  <p className={styles.cityName}>
+                    {suggestion.local_name.slice(
+                      0,
+                      suggestion.local_name.indexOf(",")
+                    )}
+                    <span className={styles.regionName}>
+                      (
+                      {suggestion.local_name.substring(
+                        suggestion.local_name.indexOf(",") + 2
+                      )}
+                      )
+                    </span>
+                  </p>
                 </div>
               </div>
             ))}
