@@ -69,12 +69,12 @@ function Searchbar() {
       });
   }
 
-  // const delayedSearch = debounce(recherche, 500);
+  const delayedSearch = debounce(recherche, 500);
 
   //fonction pour montrer l'autocomplete au fur et a mesure
   const handleChange = (event) => {
     setInput(event.target.value);
-    recherche(input);
+    delayedSearch(input);
     setPopularFrom([]);
   };
 
